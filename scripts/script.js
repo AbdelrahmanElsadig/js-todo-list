@@ -20,6 +20,8 @@ const add_todo = (text) => {
     let todo = document.createElement('div');
     todo.classList.add('row');
     todo.classList.add('todo');
+    todo.classList.add('draggables');
+    todo.setAttribute('draggable','true')
     let btn = document.createElement('button');
     btn.classList.add('btn');
     let todo_details = document.createElement('p');
@@ -54,6 +56,7 @@ const input_todo = () => {
             delete_btn([new_todo]);
             check_btn([new_todo]);
             todo_count()
+            drag_functionality();
         }
         return false
     })
@@ -182,3 +185,55 @@ const no_filter = () => {
 }
 
 no_filter()
+
+
+
+
+
+
+
+
+
+const drag_functionality = () => {
+    let container = document.querySelector('.todos');
+    let draggables = [...document.querySelectorAll('.todo')];
+    
+    draggables.forEach(item => {
+        item.addEventListener('dragstart', () => {
+            item.classList.add('dragging');
+        })
+        item.addEventListener('dragend', () => {
+            item.classList.remove('dragging');
+        })
+    })
+
+    container.addEventListener('dragover', e => {
+        e.preventDefault();
+        const afterElement = getDragAfterElement(container,e.clientY);
+        let dragging = document.querySelector('.dragging');
+        if (afterElement) {
+            container.insertBefore(dragging,afterElement);
+            return
+        }
+        container.appendChild(dragging)
+        return 
+    })
+    
+}
+drag_functionality();
+
+
+
+
+
+function getDragAfterElement(container, y) {
+    let draggables = [...container.querySelectorAll('.draggables:not(.dragging)')];
+    return draggables.reduce((closest,item) => {
+        const box = item.getBoundingClientRect();
+        const offset = y - box.top - box.height/2;
+        if (offset < 0 && offset > closest['offset']){
+            return {'offset': offset,element: item}
+        }
+        return closest
+    },{'offset': Number.NEGATIVE_INFINITY}).element
+}

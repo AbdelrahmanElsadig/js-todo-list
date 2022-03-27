@@ -10,6 +10,7 @@ body {
     display: flex;
     flex-flow: column;
     min-height: 100vh;
+    gap: 0;
     background-color: var(--very-light-grayish-blue);
 }
 
@@ -159,15 +160,19 @@ body.dark .todo-details {
     border-radius: 0.5rem 0.5rem 0 0;
     border-top: none;
 }
-.row.final {
-    border-radius: 0 0 0.5rem 0.5rem;
-    border-bottom: none;
-}
 
 .todo-details {
     color: var(--very-dark-grayish-blue);
     transition: 200ms ;
     cursor: pointer;
+}
+
+.draggables {
+    cursor: pointer;
+}
+
+.dragging {
+    opacity: 0.5;
 }
 
 .todo-details.done {
@@ -198,11 +203,23 @@ body.dark .todo-details {
     transform:rotate(-45deg);
 }
 
+.todos-container {
+    display: flex;
+    flex-flow: column;
+    gap: 0;
+}
+
 .row.final{
     width: 100%;
     display: flex;
+    border-radius: 0 0 0.5rem 0.5rem;
+    border-bottom: none;
     justify-content: space-between;
     color: var(--light-grayish-blue);
+    margin: 0 auto;
+    margin-bottom: 2rem;
+    margin-top: 0;
+    transform: translateY(-1.5rem);
 }
 
 [data-clear] {
