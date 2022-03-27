@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- displays site properly based on user's device -->
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <link id='theme' rel="stylesheet" href="./styles/style.css">
+    <script defer src="./scripts/script.js"></script>
+    <title>Frontend Mentor | Todo app</title>
+
+  </head>
+
+  <body>
+    <header>
+      <div class="header-content">
+        <h1>TODO</h1>
+        <img class="img-switch" src="./images/icon-moon.svg" alt="">
+      </div>
+      <div class="row">
+        <button class="btn"></button>
+        <form class='add-form' action="" onsubmit="return false"> <!--ignore-->
+          <input class='todo-input' placeholder="Create a new todo..." type="text">
+        </form>
+        
+      </div>
+    </header>
+    <div class="todos">
+      <div class="row todo">
+        <button class="btn"></button>
+        <p class="todo-details">Code up this todo app</p>
+        <div class="delete-icon">
+          <div class="bar-left"></div>
+          <div class="bar-right"></div>
+        </div>
+      </div>
+      <div class="row todo">
+        <button class="btn"></button>
+        <p class="todo-details">Code up this todo app</p>
+        <div class="delete-icon">
+          <div class="bar-left"></div>
+          <div class="bar-right"></div>
+        </div>
+      </div>
+      <div class="row todo">
+        <button class="btn"></button>
+        <p class="todo-details">Code up this todo app</p>
+        <div class="delete-icon">
+          <div class="bar-left"></div>
+          <div class="bar-right"></div>
+        </div>
+      </div>
+      <div class="row final">
+        <p class="items-left"><span data-items-left></span> items left</p>
+        <p data-clear>Clear Completed</p>
+      </div>
+    </div>
+
+    <div class="row options">
+      <div class="filters">
+        <p  id='all'class="filter filtered">All</p>
+        <p id ='active' class="filter">Active</p>
+        <p id='completed' class="filter">Completed</p>
+      </div>
+    </div>
+
+
+
+    <footer>
+      <p>Drag and drop to reorder list</p>
+    </footer>
+
+    </div>
+  </body>
+
+</html>
