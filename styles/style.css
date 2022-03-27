@@ -282,6 +282,6 @@ body.dark [data-clear]:hover, body.dark [data-clear]:focus {
     transition: 200ms;
 }
 
-body.dark .filterd {
+body.dark .filtered {
     color: rgb(54, 54, 179);
 }
