@@ -210,7 +210,9 @@ body.dark .todo-details {
 }
 
 .row.final{
-    width: 100%;
+    width: 80%;
+    max-width: calc(500rem/16);
+    min-width: calc(300rem/16);
     display: flex;
     border-radius: 0 0 0.5rem 0.5rem;
     border-bottom: none;
